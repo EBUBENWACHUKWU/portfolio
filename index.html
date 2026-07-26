@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ================= HEAD ================= -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebube Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<div class="navbar">
+
+    <h2>Ebube Nwachukwu</h2>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+</div>
+
+<!-- ================= HERO ================= -->
+
+<div class="hero" id="home">
+
+    <h1 id="main-heading">Ebube Allen Nwachukwu</h1>
+
+    <img src="images/profile pics.jpeg" alt="Profile Picture" width="200">
+
+    <br><br>
+
+    <div class="hero-buttons">
+
+        <a href="https://github.com/EBUBENWACHUKWU"
+           target="_blank"
+           class="btn"
+           id="github-btn">
+            GitHub
+        </a>
+
+        <a href=https://www.linkedin.com/in/ebube-nwachukwu-b37a8732b/
+           target="_blank"
+           class="btn"
+           id="linkedin-btn">
+            LinkedIn
+        </a>
+
+    </div>
+
+    <button id="change-text-btn" class="btn">
+        Learn More
+    </button>
+
+    <button id="dark-mode-btn" class="btn">
+        Dark Mode
+    </button>
+
+    <button id="toggle-about-btn" class="btn">
+        Hide About
+    </button>
+
+    <p id="career">
+        Front-End Developer | Professional Scrum Master (PSM I)
+    </p>
+
+</div>
+
+<!-- ================= ABOUT ================= -->
+
+<div class="about" id="about">
+
+    <h2>About Me</h2>
+
+    <p>
+        Hello! My name is Ebube Allen Nwachukwu.
+        I am currently learning Front-End Development
+        while building my skills as a Professional Scrum Master.
+        I enjoy creating beautiful, responsive websites
+        and solving problems through technology.
+    </p>
+
+</div>
+
+<!-- ================= SKILLS ================= -->
+
+<div class="skills hidden" id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skills-container">
+
+    <div class="skill-card">
+    <h3>HTML</h3>
+    <p>Advanced</p>
+</div>
+
+<div class="skill-card">
+    <h3>CSS</h3>
+    <p>Advanced</p>
+</div>
+
+<div class="skill-card">
+    <h3>JavaScript</h3>
+    <p>Intermediate</p>
+</div>
+
+<div class="skill-card">
+    <h3>React</h3>
+    <p>Learning</p>
+</div>
+
+<div class="skill-card">
+    <h3>Git & GitHub</h3>
+    <p>Intermediate</p>
+</div>
+
+<div class="skill-card">
+    <h3>Scrum (PSM I)</h3>
+    <p>Professional</p>
+</div>    
+
+</div>
+
+</div>
+
+
+<!-- ================= CERTIFICATIONS ================= -->
+
+<div class="certifications hidden" id="certifications">
+
+    <h2>Certifications</h2>
+
+    <div class="cert-card">
+
+        <img src="images/psm1-certificate.png"
+             alt="Professional Scrum Master I Certificate">
+
+        <h3>Professional Scrum Master™ I (PSM I)</h3>
+
+        <p><strong>Issued by:</strong> Scrum.org</p>
+
+        <p>
+            Demonstrates knowledge of Scrum principles, Scrum events,
+            Scrum accountabilities, Scrum artifacts, and Agile practices.
+        </p>
+
+        <a href="images/psm1-certificate.png"
+           target="_blank"
+           class="btn">
+            View Certificate
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<div class="projects hidden" id="projects">
+
+    <h2>My Projects</h2>
+
+    <div class="filter-buttons">
+
+        <button class="btn" id="all-btn">All</button>
+        <button class="btn" id="html-btn">HTML/CSS</button>
+        <button class="btn" id="js-btn">JavaScript</button>
+        <button class="btn" id="scrum-btn">Scrum</button>
+
+    </div>
+
+    <div class="projects-container">
+
+    <!-- ================= Project 1 ================= -->
+
+    <div class="project-card html javascript" id="project1">
+
+        <img src="images/portfolio.png" alt="Portfolio Website">
+
+        <h3>Portfolio Website</h3>
+
+        <p>
+            A responsive personal portfolio built using HTML, CSS and JavaScript.
+        </p>
+
+        <p><strong>Technologies:</strong></p>
+
+        <p>HTML • CSS • JavaScript</p>
+
+
+    <a href="#" class="btn" id="portfolio-details">
+    Details
+</a>
+
+<a href="#" class="btn">
+    Live Demo
+</a>
+
+<a href="https://github.com/EBUBENWACHUKWU"
+   target="_blank"
+   class="btn">
+    GitHub
+</a>
+
+</div>
+
+
+    <!-- ================= Project 2 ================= -->
+
+    <div class="project-card scrum" id="project2">
+
+        <img src="images/ecommerce.png" alt="E-Commerce Scrum Project">
+
+        <h3>E-Commerce Scrum Project</h3>
+
+        <p>
+            Managed an e-commerce website project using Scrum, Jira and Agile practices.
+        </p>
+
+        <p><strong>Technologies:</strong></p>
+
+        <p>Scrum • Jira • Agile</p>
+
+        <a href="#" class="btn" id="ecommerce-details">
+    Details
+</a>
+
+<a href="#" class="btn">
+    Case Study
+</a>
+
+<a href="https://github.com/EBUBENWACHUKWU/E-Commerce-Scrum-Project"
+   target="_blank"
+   class="btn">
+    GitHub
+</a>
+
+    </div>
+
+
+    <!-- ================= Project 3 ================= -->
+
+    <div class="project-card scrum javascript" id="project3">
+
+        <img src="images/staking.png" alt="Staking DApp">
+
+        <h3>Staking DApp</h3>
+
+        <p>
+            Scrum-managed blockchain staking application built with Solidity, Hardhat and React.
+        </p>
+
+        <p><strong>Technologies:</strong></p>
+
+        
+    <p>Solidity • React • Hardhat • Scrum</p>
+
+<a href="#" class="btn" id="staking-details">
+    Details
+</a>
+
+<a href="#" class="btn">
+    Live Demo
+</a>
+
+<a href="https://github.com/EBUBENWACHUKWU/Staking-Dapp-Scrum-Project"
+   target="_blank"
+   class="btn">
+    GitHub
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= CONTACT ================= -->
+
+<div class="contact hidden" id="contact">
+    <h2>Contact Me</h2>
+
+    <p>
+        I'm always open to discussing new opportunities and interesting projects.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="mailto:allenebube@yahoo.com"
+           class="btn"
+           id="email-btn">
+            Email
+        </a>
+
+        <a href="https://github.com/EBUBENWACHUKWU"
+           target="_blank"
+           class="btn">
+            GitHub
+        </a>
+
+        <a href=https://www.linkedin.com/in/ebube-nwachukwu-b37a8732b/
+           target="_blank"
+           class="btn">
+            LinkedIn
+        </a>
+
+    </div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <p>© 2026 Ebube Allen Nwachukwu</p>
+
+    <p>Built with HTML, CSS & JavaScript</p>
+
+</footer>
+
+<!-- ================= BACK TO TOP ================= -->
+
+<button id="top-btn" class="btn">
+    ↑ Top
+</button>
+
+<!-- ================= PROJECT MODAL ================= -->
+
+<div id="project-modal" class="modal">
+
+    <div class="modal-content">
+
+        <span id="close-modal">&times;</span>
+
+        <h2 id="modal-title"></h2>
+
+        <p id="modal-description"></p>
+
+    </div>
+
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
