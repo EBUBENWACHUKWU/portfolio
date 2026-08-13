@@ -16,7 +16,9 @@ heading.style.fontSize = "60px";
 let githubButton = document.getElementById("github-btn");
 
 githubButton.addEventListener("click", function () {
+
     alert("Opening my GitHub profile!");
+
 });
 
 
@@ -76,7 +78,7 @@ darkModeButton.addEventListener("click", function () {
 
 
 // ===============================
-// SHOW/HIDE ABOUT SECTION
+// SHOW / HIDE ABOUT SECTION
 // ===============================
 
 let aboutSection = document.getElementById("about");
@@ -108,12 +110,12 @@ toggleButton.addEventListener("click", function () {
 });
 
 
-
 // ===============================
 // TYPING ANIMATION
 // ===============================
 
-let typingText = "Front-End Developer | Professional Scrum Master (PSM I)";
+let typingText =
+    "Professional Scrum Master (PSM I) | Front-End Developer";
 
 career.textContent = "";
 
@@ -137,8 +139,9 @@ setInterval(function () {
 
 }, 100);
 
+
 // ===============================
-// PROJECT FILTER
+// PROJECT FILTER BUTTONS
 // ===============================
 
 let allButton = document.getElementById("all-btn");
@@ -149,68 +152,106 @@ let jsButton = document.getElementById("js-btn");
 
 let scrumButton = document.getElementById("scrum-btn");
 
+let aiButton = document.getElementById("ai-btn");
+
+
+// ===============================
+// PROJECTS
+// ===============================
+
 let project1 = document.getElementById("project1");
 
 let project2 = document.getElementById("project2");
 
 let project3 = document.getElementById("project3");
 
+let project4 = document.getElementById("project4");
+
 
 // ===============================
-// ALL BUTTON
+// ALL PROJECTS
 // ===============================
 
 allButton.addEventListener("click", function () {
 
-    project1.style.display = "block";
+    project1.style.display = "flex";
 
-    project2.style.display = "block";
+    project2.style.display = "flex";
 
-    project3.style.display = "block";
+    project3.style.display = "flex";
+
+    project4.style.display = "flex";
 
 });
 
 
 // ===============================
-// HTML/CSS BUTTON
+// HTML / CSS PROJECTS
 // ===============================
 
 htmlButton.addEventListener("click", function () {
 
-    project1.style.display = "block";
+    project1.style.display = "flex";
 
     project2.style.display = "none";
 
     project3.style.display = "none";
 
+    project4.style.display = "none";
+
 });
 
 
 // ===============================
-// JAVASCRIPT BUTTON
+// JAVASCRIPT PROJECTS
 // ===============================
 
 jsButton.addEventListener("click", function () {
 
     project1.style.display = "none";
 
-    project2.style.display = "none";
+    project2.style.display = "flex";
 
-    project3.style.display = "block";
+    project3.style.display = "none";
+
+    project4.style.display = "none";
+
 });
 
 
 // ===============================
-// SCRUM BUTTON
+// SCRUM PROJECTS
 // ===============================
 
 scrumButton.addEventListener("click", function () {
 
     project1.style.display = "none";
 
-    project2.style.display = "block";
+    project2.style.display = "flex";
+
+    project3.style.display = "flex";
+
+    project4.style.display = "none";
 
 });
+
+
+// ===============================
+// AI AUTOMATION PROJECT
+// ===============================
+
+aiButton.addEventListener("click", function () {
+
+    project1.style.display = "none";
+
+    project2.style.display = "none";
+
+    project3.style.display = "none";
+
+    project4.style.display = "flex";
+
+});
+
 
 // ===============================
 // BACK TO TOP BUTTON
@@ -232,6 +273,7 @@ window.addEventListener("scroll", function () {
 
 });
 
+
 topButton.addEventListener("click", function () {
 
     window.scrollTo({
@@ -244,11 +286,13 @@ topButton.addEventListener("click", function () {
 
 });
 
+
 // ===============================
 // SCROLL REVEAL ANIMATION
 // ===============================
 
-let hiddenSections = document.querySelectorAll(".hidden");
+let hiddenSections =
+    document.querySelectorAll(".hidden");
 
 window.addEventListener("scroll", revealSections);
 
@@ -256,9 +300,11 @@ function revealSections() {
 
     hiddenSections.forEach(function (section) {
 
-        let sectionTop = section.getBoundingClientRect().top;
+        let sectionTop =
+            section.getBoundingClientRect().top;
 
-        let screenHeight = window.innerHeight;
+        let screenHeight =
+            window.innerHeight;
 
         if (sectionTop < screenHeight - 100) {
 
@@ -270,71 +316,115 @@ function revealSections() {
 
 }
 
-// Run once when the page loads
+
+// Run once when page loads
 revealSections();
+
 
 // ===============================
 // PROJECT DETAILS MODAL
 // ===============================
 
-let modal = document.getElementById("project-modal");
+let modal =
+    document.getElementById("project-modal");
 
-let closeModal = document.getElementById("close-modal");
+let closeModal =
+    document.getElementById("close-modal");
 
-let modalTitle = document.getElementById("modal-title");
+let modalTitle =
+    document.getElementById("modal-title");
 
-let modalDescription = document.getElementById("modal-description");
-
-
-// Portfolio
-
-document.getElementById("portfolio-details").addEventListener("click", function (event) {
-
-    event.preventDefault();
-
-    modal.style.display = "flex";
-
-    modalTitle.textContent = "Portfolio Website";
-
-    modalDescription.textContent =
-        "Designed and developed a fully responsive personal portfolio using HTML, CSS and JavaScript. The website includes project filtering, dark mode, smooth scrolling, animations, responsive layouts and interactive components.";
-
-});
+let modalDescription =
+    document.getElementById("modal-description");
 
 
-// Ecommerce Scrum
+// ===============================
+// PORTFOLIO DETAILS
+// ===============================
 
-document.getElementById("ecommerce-details").addEventListener("click", function (event) {
+document
+    .getElementById("portfolio-details")
+    .addEventListener("click", function (event) {
 
-    event.preventDefault();
+        event.preventDefault();
 
-    modal.style.display = "flex";
+        modal.style.display = "flex";
 
-    modalTitle.textContent = "E-Commerce Scrum Project";
+        modalTitle.textContent =
+            "Portfolio Website";
 
-    modalDescription.textContent =
-        "Managed an Agile e-commerce project using Scrum and Jira. Planned sprints, managed the Product Backlog, tracked sprint progress, facilitated Scrum events and documented Sprint Reviews and Retrospectives.";
+        modalDescription.textContent =
+            "Designed and developed a fully responsive personal portfolio using HTML, CSS and JavaScript. The website includes project filtering, dark mode, smooth scrolling, animations, responsive layouts and interactive components.";
 
-});
-
-
-// Staking DApp
-
-document.getElementById("staking-details").addEventListener("click", function (event) {
-
-    event.preventDefault();
-
-    modal.style.display = "flex";
-
-    modalTitle.textContent = "Staking DApp";
-
-    modalDescription.textContent =
-        "Developed a blockchain staking application using Solidity, Hardhat, React and Ethers.js. The project demonstrates smart contract development, wallet integration and Agile project management.";
-
-});
+    });
 
 
-// Close Button
+// ===============================
+// E-COMMERCE DETAILS
+// ===============================
+
+document
+    .getElementById("ecommerce-details")
+    .addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        modal.style.display = "flex";
+
+        modalTitle.textContent =
+            "E-Commerce Scrum Project";
+
+        modalDescription.textContent =
+            "Managed an Agile e-commerce project using Scrum and Jira. Planned sprints, managed the Product Backlog, tracked sprint progress, facilitated Scrum events and documented Sprint Reviews and Retrospectives.";
+
+    });
+
+
+// ===============================
+// STAKING DAPP DETAILS
+// ===============================
+
+document
+    .getElementById("staking-details")
+    .addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        modal.style.display = "flex";
+
+        modalTitle.textContent =
+            "Staking DApp";
+
+        modalDescription.textContent =
+            "Developed a blockchain staking application using Solidity, Hardhat, React and Ethers.js. The project demonstrates smart contract development, wallet integration and Agile project management.";
+
+    });
+
+
+// ===============================
+// AI AUTOMATION DETAILS
+// ===============================
+
+document
+    .getElementById("ai-project-details")
+    .addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        modal.style.display = "flex";
+
+        modalTitle.textContent =
+            "AI Customer Support Automation";
+
+        modalDescription.textContent =
+            "Built an AI-powered customer-support automation using n8n. The workflow receives customer emails, analyzes customer requests using AI, classifies intent and priority, routes requests based on intent, generates an AI-assisted response, and logs structured support tickets in Google Sheets.";
+
+    });
+
+
+// ===============================
+// CLOSE MODAL
+// ===============================
 
 closeModal.addEventListener("click", function () {
 
@@ -343,7 +433,9 @@ closeModal.addEventListener("click", function () {
 });
 
 
-// Close when clicking outside
+// ===============================
+// CLOSE MODAL WHEN CLICKING OUTSIDE
+// ===============================
 
 window.addEventListener("click", function (event) {
 
