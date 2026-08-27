@@ -115,7 +115,7 @@ toggleButton.addEventListener("click", function () {
 // ===============================
 
 let typingText =
-    "Professional Scrum Master (PSM I) | Front-End Developer";
+    "Professional Scrum Master (PSM I) | AI Automation Specialist | Front-End Developer Experience";
 
 career.textContent = "";
 
@@ -167,6 +167,8 @@ let project3 = document.getElementById("project3");
 
 let project4 = document.getElementById("project4");
 
+let project5 = document.getElementById("project5");
+
 
 // ===============================
 // ALL PROJECTS
@@ -175,12 +177,10 @@ let project4 = document.getElementById("project4");
 allButton.addEventListener("click", function () {
 
     project1.style.display = "flex";
-
     project2.style.display = "flex";
-
     project3.style.display = "flex";
-
     project4.style.display = "flex";
+    project5.style.display = "flex";
 
 });
 
@@ -192,12 +192,10 @@ allButton.addEventListener("click", function () {
 htmlButton.addEventListener("click", function () {
 
     project1.style.display = "flex";
-
     project2.style.display = "none";
-
     project3.style.display = "none";
-
     project4.style.display = "none";
+    project5.style.display = "none";
 
 });
 
@@ -209,12 +207,10 @@ htmlButton.addEventListener("click", function () {
 jsButton.addEventListener("click", function () {
 
     project1.style.display = "none";
-
     project2.style.display = "flex";
-
     project3.style.display = "none";
-
     project4.style.display = "none";
+    project5.style.display = "none";
 
 });
 
@@ -226,29 +222,25 @@ jsButton.addEventListener("click", function () {
 scrumButton.addEventListener("click", function () {
 
     project1.style.display = "none";
-
     project2.style.display = "flex";
-
     project3.style.display = "flex";
-
     project4.style.display = "none";
+    project5.style.display = "flex";
 
 });
 
 
 // ===============================
-// AI AUTOMATION PROJECT
+// AI AUTOMATION PROJECTS
 // ===============================
 
 aiButton.addEventListener("click", function () {
 
     project1.style.display = "none";
-
     project2.style.display = "none";
-
     project3.style.display = "none";
-
     project4.style.display = "flex";
+    project5.style.display = "flex";
 
 });
 
@@ -279,7 +271,6 @@ topButton.addEventListener("click", function () {
     window.scrollTo({
 
         top: 0,
-
         behavior: "smooth"
 
     });
@@ -392,17 +383,17 @@ document
 
         modal.style.display = "flex";
 
-        modalTitle.textContent =
-            "Staking DApp";
+       modalTitle.textContent =
+    "Scrum Staking DApp Project";
 
         modalDescription.textContent =
-            "Developed a blockchain staking application using Solidity, Hardhat, React and Ethers.js. The project demonstrates smart contract development, wallet integration and Agile project management.";
+    "Managed a blockchain staking DApp project using Agile and Scrum practices. Used Jira to organize and manage the Product Backlog, plan and track Sprints, monitor progress, facilitate Scrum events, track impediments, and support continuous improvement through Sprint Reviews and Retrospectives.";
 
     });
 
 
 // ===============================
-// AI AUTOMATION DETAILS
+// AI CUSTOMER SUPPORT AUTOMATION DETAILS
 // ===============================
 
 document
@@ -423,12 +414,159 @@ document
 
 
 // ===============================
+// AI SCRUM RETROSPECTIVE ASSISTANT DETAILS
+// ===============================
+
+document
+    .getElementById("scrum-ai-details")
+    .addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        modal.style.display = "flex";
+
+        modalTitle.textContent =
+            "AI Scrum Retrospective Assistant";
+
+        // Show project details first.
+        // Screenshots remain hidden until the button is clicked.
+
+        modalDescription.innerHTML = `
+
+            <h3>About This Project</h3>
+
+            <p>
+                An AI-powered n8n automation designed to help Scrum
+                Teams analyze Sprint Retrospective feedback more
+                efficiently.
+            </p>
+
+            <h3>How It Works</h3>
+
+            <p>
+                <strong>1.</strong>
+                Sprint Retrospective feedback is entered into the
+                n8n workflow.
+            </p>
+
+            <p>
+                <strong>2.</strong>
+                An AI Agent analyzes the feedback.
+            </p>
+
+            <p>
+                <strong>3.</strong>
+                The workflow identifies the feedback category,
+                main theme and priority.
+            </p>
+
+            <p>
+                <strong>4.</strong>
+                The AI generates a concise summary and a
+                recommended action item.
+            </p>
+
+            <p>
+                <strong>5.</strong>
+                The structured results are automatically stored
+                in Google Sheets.
+            </p>
+
+            <h3>Technologies Used</h3>
+
+            <p>
+                n8n • OpenRouter • AI Agent •
+                Structured Output Parser • Google Sheets •
+                Google OAuth 2.0
+            </p>
+
+            <button
+                class="btn"
+                id="view-scrum-screenshots"
+                style="margin-top: 15px;">
+
+                View Project Screenshots
+
+            </button>
+
+            <div
+                id="scrum-screenshots"
+                style="display: none; margin-top: 30px;">
+
+                <hr>
+
+                <h3>1. n8n Workflow</h3>
+
+                <img
+                    src="screenshots/scrum-retro-workflow.png"
+                    alt="AI Scrum Retrospective Assistant Workflow"
+                    style="width: 100%; height: auto; margin-bottom: 30px;"
+                >
+
+                <h3>2. AI Analysis Output</h3>
+
+                <img
+                    src="screenshots/scrum-retro-ai-output.png"
+                    alt="AI Analysis Output"
+                    style="width: 100%; height: auto; margin-bottom: 30px;"
+                >
+
+                <h3>3. Google Sheets Results</h3>
+
+                <img
+                    src="screenshots/scrum-retro-sheets.png"
+                    alt="Google Sheets Results"
+                    style="width: 100%; height: auto; margin-bottom: 20px;"
+                >
+
+            </div>
+
+        `;
+
+
+        // ===============================
+        // SHOW / HIDE SCREENSHOTS
+        // ===============================
+
+        let screenshotsButton =
+            document.getElementById("view-scrum-screenshots");
+
+        let screenshotsSection =
+            document.getElementById("scrum-screenshots");
+
+
+        screenshotsButton.addEventListener("click", function () {
+
+            if (screenshotsSection.style.display === "none") {
+
+                screenshotsSection.style.display = "block";
+
+                screenshotsButton.textContent =
+                    "Hide Project Screenshots";
+
+            } else {
+
+                screenshotsSection.style.display = "none";
+
+                screenshotsButton.textContent =
+                    "View Project Screenshots";
+
+            }
+
+        });
+
+    });
+
+
+// ===============================
 // CLOSE MODAL
 // ===============================
 
 closeModal.addEventListener("click", function () {
 
     modal.style.display = "none";
+
+    modalDescription.innerHTML = "";
 
 });
 
@@ -442,6 +580,8 @@ window.addEventListener("click", function (event) {
     if (event.target === modal) {
 
         modal.style.display = "none";
+
+        modalDescription.innerHTML = "";
 
     }
 
