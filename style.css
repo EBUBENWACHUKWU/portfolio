@@ -761,3 +761,67 @@ img {
 
     z-index: 5;
 }
+
+
+/* Fix the screenshot popup */
+#project-modal {
+    overflow-y: auto;
+}
+
+#project-modal .modal-content {
+    width: min(1000px, 92vw);
+    max-width: 92vw;
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 5vh auto;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+/* Arrange screenshots neatly */
+#project-modal .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+#project-modal .screenshot-gallery figure {
+    min-width: 0;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: #f8fafc;
+    overflow: hidden;
+}
+
+#project-modal .screenshot-gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    object-position: center;
+    background: #ffffff;
+}
+
+#project-modal .screenshot-gallery figcaption {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+@media (max-width: 650px) {
+    #project-modal .screenshot-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    #project-modal .modal-content {
+        width: 95vw;
+        max-width: 95vw;
+        padding: 14px;
+    }
+}

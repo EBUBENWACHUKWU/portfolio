@@ -1,588 +1,307 @@
-// ===============================
-// MAIN HEADING
-// ===============================
 
-let heading = document.getElementById("main-heading");
+document.addEventListener("DOMContentLoaded", function () {
+    // Project descriptions shown in the Details modal.
+    const projectInformation = {
+        portfolio: {
+            title: "Portfolio Website",
+            description:
+                "A personal portfolio built with HTML, CSS, and JavaScript to showcase projects, skills, certification, and experience."
+        },
+        ecommerce: {
+            title: "E-Commerce Scrum Project",
+            description:
+                "An e-commerce project organized using Scrum and Jira, including backlog management, Sprint Planning, Sprint Reviews, and progress tracking."
+        },
+        staking: {
+            title: "Scrum Staking DApp Project",
+            description:
+                "A blockchain staking DApp project documented through Scrum planning, Sprint tracking, Reviews, and Retrospectives."
+        },
+        remittance: {
+            title: "AI Remittance Document Processing Automation",
+            description:
+                "An n8n workflow for processing remittance PDFs, validating payment data, detecting duplicates, routing records for human review, logging results, and sending email notifications."
+        },
+        "customer-support": {
+            title: "AI Customer Support Ticket Management",
+            description:
+                "An AI-powered customer support automation project using n8n, AI agents, Supabase, and a ticket management dashboard."
+        },
+        "scrum-ai": {
+            title: "AI Scrum Retrospective Assistant",
+            description:
+                "An AI-powered n8n workflow that analyzes Sprint Retrospective feedback and generates structured insights and action items."
+        },
+        "lead-crm": {
+            title: "AI Lead Qualification & CRM Agent",
+            description:
+                "An n8n automation that classifies leads as Hot, Warm, or Cold, records results in Google Sheets, and sends email notifications."
+        }
+    };
 
-heading.textContent = "Welcome to My Portfolio!";
-heading.style.color = "blue";
-heading.style.fontSize = "60px";
+    // Modal elements.
+    const modal = document.getElementById("project-modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalDescription = document.getElementById("modal-description");
+    const closeButton = document.getElementById("close-modal");
 
+    // Gallery IDs must match the IDs in index.html.
+    const galleryIds = {
+        remittance: "remittance-gallery",
+        "customer-support": "customer-support-gallery",
+        "scrum-ai": "scrum-ai-gallery",
+        "lead-crm": "lead-crm-gallery"
+    };
 
-// ===============================
-// GITHUB BUTTON
-// ===============================
-
-let githubButton = document.getElementById("github-btn");
-
-githubButton.addEventListener("click", function () {
-
-    alert("Opening my GitHub profile!");
-
-});
-
-
-// ===============================
-// CAREER PARAGRAPH
-// ===============================
-
-let career = document.getElementById("career");
-
-
-// ===============================
-// LEARN MORE BUTTON
-// ===============================
-
-let changeButton = document.getElementById("change-text-btn");
-
-function changeCareerText() {
-
-    career.textContent = "Thanks for visiting my portfolio! 👋";
-
-}
-
-changeButton.addEventListener("click", changeCareerText);
-
-
-// ===============================
-// DARK MODE
-// ===============================
-
-let darkModeButton = document.getElementById("dark-mode-btn");
-
-let isDarkMode = false;
-
-darkModeButton.addEventListener("click", function () {
-
-    if (isDarkMode) {
-
-        document.body.style.backgroundColor = "#E0F2FE";
-        document.body.style.color = "#1F2937";
-
-        darkModeButton.textContent = "Dark Mode";
-
-        isDarkMode = false;
-
-    } else {
-
-        document.body.style.backgroundColor = "#1F2937";
-        document.body.style.color = "white";
-
-        darkModeButton.textContent = "Light Mode";
-
-        isDarkMode = true;
-
+    function hideAllGalleries() {
+        Object.values(galleryIds).forEach(function (galleryId) {
+            const gallery = document.getElementById(galleryId);
+            if (gallery) {
+                gallery.hidden = true;
+            }
+        });
     }
 
-});
-
-
-// ===============================
-// SHOW / HIDE ABOUT SECTION
-// ===============================
-
-let aboutSection = document.getElementById("about");
-
-let toggleButton = document.getElementById("toggle-about-btn");
-
-let isAboutHidden = false;
-
-toggleButton.addEventListener("click", function () {
-
-    if (isAboutHidden) {
-
-        aboutSection.style.display = "block";
-
-        toggleButton.textContent = "Hide About";
-
-        isAboutHidden = false;
-
-    } else {
-
-        aboutSection.style.display = "none";
-
-        toggleButton.textContent = "Show About";
-
-        isAboutHidden = true;
-
-    }
-
-});
-
-
-// ===============================
-// TYPING ANIMATION
-// ===============================
-
-let typingText =
-    "Professional Scrum Master (PSM I) | AI Automation Specialist | Front-End Developer Experience";
-
-career.textContent = "";
-
-let index = 0;
-
-function typeText() {
-
-    career.textContent += typingText.charAt(index);
-
-    index++;
-
-}
-
-setInterval(function () {
-
-    if (index < typingText.length) {
-
-        typeText();
-
-    }
-
-}, 100);
-
-
-// ===============================
-// PROJECT FILTER BUTTONS
-// ===============================
-
-let allButton = document.getElementById("all-btn");
-
-let htmlButton = document.getElementById("html-btn");
-
-let jsButton = document.getElementById("js-btn");
-
-let scrumButton = document.getElementById("scrum-btn");
-
-let aiButton = document.getElementById("ai-btn");
-
-
-// ===============================
-// PROJECTS
-// ===============================
-
-let project1 = document.getElementById("project1");
-
-let project2 = document.getElementById("project2");
-
-let project3 = document.getElementById("project3");
-
-let project4 = document.getElementById("project4");
-
-let project5 = document.getElementById("project5");
-
-
-// ===============================
-// ALL PROJECTS
-// ===============================
-
-allButton.addEventListener("click", function () {
-
-    project1.style.display = "flex";
-    project2.style.display = "flex";
-    project3.style.display = "flex";
-    project4.style.display = "flex";
-    project5.style.display = "flex";
-
-});
-
-
-// ===============================
-// HTML / CSS PROJECTS
-// ===============================
-
-htmlButton.addEventListener("click", function () {
-
-    project1.style.display = "flex";
-    project2.style.display = "none";
-    project3.style.display = "none";
-    project4.style.display = "none";
-    project5.style.display = "none";
-
-});
-
-
-// ===============================
-// JAVASCRIPT PROJECTS
-// ===============================
-
-jsButton.addEventListener("click", function () {
-
-    project1.style.display = "none";
-    project2.style.display = "flex";
-    project3.style.display = "none";
-    project4.style.display = "none";
-    project5.style.display = "none";
-
-});
-
-
-// ===============================
-// SCRUM PROJECTS
-// ===============================
-
-scrumButton.addEventListener("click", function () {
-
-    project1.style.display = "none";
-    project2.style.display = "flex";
-    project3.style.display = "flex";
-    project4.style.display = "none";
-    project5.style.display = "flex";
-
-});
-
-
-// ===============================
-// AI AUTOMATION PROJECTS
-// ===============================
-
-aiButton.addEventListener("click", function () {
-
-    project1.style.display = "none";
-    project2.style.display = "none";
-    project3.style.display = "none";
-    project4.style.display = "flex";
-    project5.style.display = "flex";
-
-});
-
-
-// ===============================
-// BACK TO TOP BUTTON
-// ===============================
-
-let topButton = document.getElementById("top-btn");
-
-window.addEventListener("scroll", function () {
-
-    if (window.scrollY > 300) {
-
-        topButton.style.display = "block";
-
-    } else {
-
-        topButton.style.display = "none";
-
-    }
-
-});
-
-
-topButton.addEventListener("click", function () {
-
-    window.scrollTo({
-
-        top: 0,
-        behavior: "smooth"
-
-    });
-
-});
-
-
-// ===============================
-// SCROLL REVEAL ANIMATION
-// ===============================
-
-let hiddenSections =
-    document.querySelectorAll(".hidden");
-
-window.addEventListener("scroll", revealSections);
-
-function revealSections() {
-
-    hiddenSections.forEach(function (section) {
-
-        let sectionTop =
-            section.getBoundingClientRect().top;
-
-        let screenHeight =
-            window.innerHeight;
-
-        if (sectionTop < screenHeight - 100) {
-
-            section.classList.add("show");
-
+    function openProjectModal(projectKey, galleryKey = null) {
+        if (!modal || !modalTitle || !modalDescription) {
+            console.error("Project modal elements are missing from index.html.");
+            return;
         }
 
-    });
+        const project = projectInformation[projectKey];
 
-}
+        if (!project) {
+            console.error("Project information not found:", projectKey);
+            return;
+        }
 
+        modalTitle.textContent = project.title;
+        modalDescription.textContent = project.description;
 
-// Run once when page loads
-revealSections();
+        // Hide previous galleries before showing the selected gallery.
+        hideAllGalleries();
 
+        if (galleryKey && galleryIds[galleryKey]) {
+            const gallery = document.getElementById(galleryIds[galleryKey]);
 
-// ===============================
-// PROJECT DETAILS MODAL
-// ===============================
-
-let modal =
-    document.getElementById("project-modal");
-
-let closeModal =
-    document.getElementById("close-modal");
-
-let modalTitle =
-    document.getElementById("modal-title");
-
-let modalDescription =
-    document.getElementById("modal-description");
-
-
-// ===============================
-// PORTFOLIO DETAILS
-// ===============================
-
-document
-    .getElementById("portfolio-details")
-    .addEventListener("click", function (event) {
-
-        event.preventDefault();
-
-        modal.style.display = "flex";
-
-        modalTitle.textContent =
-            "Portfolio Website";
-
-        modalDescription.textContent =
-            "Designed and developed a fully responsive personal portfolio using HTML, CSS and JavaScript. The website includes project filtering, dark mode, smooth scrolling, animations, responsive layouts and interactive components.";
-
-    });
-
-
-// ===============================
-// E-COMMERCE DETAILS
-// ===============================
-
-document
-    .getElementById("ecommerce-details")
-    .addEventListener("click", function (event) {
-
-        event.preventDefault();
-
-        modal.style.display = "flex";
-
-        modalTitle.textContent =
-            "E-Commerce Scrum Project";
-
-        modalDescription.textContent =
-            "Managed an Agile e-commerce project using Scrum and Jira. Planned sprints, managed the Product Backlog, tracked sprint progress, facilitated Scrum events and documented Sprint Reviews and Retrospectives.";
-
-    });
-
-
-// ===============================
-// STAKING DAPP DETAILS
-// ===============================
-
-document
-    .getElementById("staking-details")
-    .addEventListener("click", function (event) {
-
-        event.preventDefault();
-
-        modal.style.display = "flex";
-
-       modalTitle.textContent =
-    "Scrum Staking DApp Project";
-
-        modalDescription.textContent =
-    "Managed a blockchain staking DApp project using Agile and Scrum practices. Used Jira to organize and manage the Product Backlog, plan and track Sprints, monitor progress, facilitate Scrum events, track impediments, and support continuous improvement through Sprint Reviews and Retrospectives.";
-
-    });
-
-
-// ===============================
-// AI CUSTOMER SUPPORT AUTOMATION DETAILS
-// ===============================
-
-document
-    .getElementById("ai-project-details")
-    .addEventListener("click", function (event) {
-
-        event.preventDefault();
-
-        modal.style.display = "flex";
-
-        modalTitle.textContent =
-            "AI Customer Support Automation";
-
-        modalDescription.textContent =
-            "Built an AI-powered customer-support automation using n8n. The workflow receives customer emails, analyzes customer requests using AI, classifies intent and priority, routes requests based on intent, generates an AI-assisted response, and logs structured support tickets in Google Sheets.";
-
-    });
-
-
-// ===============================
-// AI SCRUM RETROSPECTIVE ASSISTANT DETAILS
-// ===============================
-
-document
-    .getElementById("scrum-ai-details")
-    .addEventListener("click", function (event) {
-
-        event.preventDefault();
-
-        modal.style.display = "flex";
-
-        modalTitle.textContent =
-            "AI Scrum Retrospective Assistant";
-
-        // Show project details first.
-        // Screenshots remain hidden until the button is clicked.
-
-        modalDescription.innerHTML = `
-
-            <h3>About This Project</h3>
-
-            <p>
-                An AI-powered n8n automation designed to help Scrum
-                Teams analyze Sprint Retrospective feedback more
-                efficiently.
-            </p>
-
-            <h3>How It Works</h3>
-
-            <p>
-                <strong>1.</strong>
-                Sprint Retrospective feedback is entered into the
-                n8n workflow.
-            </p>
-
-            <p>
-                <strong>2.</strong>
-                An AI Agent analyzes the feedback.
-            </p>
-
-            <p>
-                <strong>3.</strong>
-                The workflow identifies the feedback category,
-                main theme and priority.
-            </p>
-
-            <p>
-                <strong>4.</strong>
-                The AI generates a concise summary and a
-                recommended action item.
-            </p>
-
-            <p>
-                <strong>5.</strong>
-                The structured results are automatically stored
-                in Google Sheets.
-            </p>
-
-            <h3>Technologies Used</h3>
-
-            <p>
-                n8n • OpenRouter • AI Agent •
-                Structured Output Parser • Google Sheets •
-                Google OAuth 2.0
-            </p>
-
-            <button
-                class="btn"
-                id="view-scrum-screenshots"
-                style="margin-top: 15px;">
-
-                View Project Screenshots
-
-            </button>
-
-            <div
-                id="scrum-screenshots"
-                style="display: none; margin-top: 30px;">
-
-                <hr>
-
-                <h3>1. n8n Workflow</h3>
-
-                <img
-                    src="screenshots/scrum-retro-workflow.png"
-                    alt="AI Scrum Retrospective Assistant Workflow"
-                    style="width: 100%; height: auto; margin-bottom: 30px;"
-                >
-
-                <h3>2. AI Analysis Output</h3>
-
-                <img
-                    src="screenshots/scrum-retro-ai-output.png"
-                    alt="AI Analysis Output"
-                    style="width: 100%; height: auto; margin-bottom: 30px;"
-                >
-
-                <h3>3. Google Sheets Results</h3>
-
-                <img
-                    src="screenshots/scrum-retro-sheets.png"
-                    alt="Google Sheets Results"
-                    style="width: 100%; height: auto; margin-bottom: 20px;"
-                >
-
-            </div>
-
-        `;
-
-
-        // ===============================
-        // SHOW / HIDE SCREENSHOTS
-        // ===============================
-
-        let screenshotsButton =
-            document.getElementById("view-scrum-screenshots");
-
-        let screenshotsSection =
-            document.getElementById("scrum-screenshots");
-
-
-        screenshotsButton.addEventListener("click", function () {
-
-            if (screenshotsSection.style.display === "none") {
-
-                screenshotsSection.style.display = "block";
-
-                screenshotsButton.textContent =
-                    "Hide Project Screenshots";
-
-            } else {
-
-                screenshotsSection.style.display = "none";
-
-                screenshotsButton.textContent =
-                    "View Project Screenshots";
-
+            if (gallery) {
+                gallery.hidden = false;
             }
+        }
 
-        });
+        const modalContent = modal.querySelector(".modal-content");
 
-    });
+        if (modalContent) {
+            modalContent.scrollTop = 0;
+        }
 
+        modal.style.display = "flex";
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
 
-// ===============================
-// CLOSE MODAL
-// ===============================
-
-closeModal.addEventListener("click", function () {
-
-    modal.style.display = "none";
-
-    modalDescription.innerHTML = "";
-
-});
-
-
-// ===============================
-// CLOSE MODAL WHEN CLICKING OUTSIDE
-// ===============================
-
-window.addEventListener("click", function (event) {
-
-    if (event.target === modal) {
-
-        modal.style.display = "none";
-
-        modalDescription.innerHTML = "";
-
+        if (closeButton) {
+            closeButton.focus();
+        }
     }
 
+    function closeProjectModal() {
+        if (!modal) return;
+
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+        hideAllGalleries();
+    }
+
+    // Details buttons: open the project description without a gallery.
+    document.querySelectorAll(".details-btn").forEach(function (button) {
+        button.addEventListener("click", function () {
+            openProjectModal(button.dataset.project);
+        });
+    });
+
+    // Screenshot buttons: each button opens only its own project gallery.
+    const galleryButtons = {
+        "remittance-screenshots": "remittance",
+        "customer-support-screenshots": "customer-support",
+        "scrum-ai-screenshots": "scrum-ai",
+        "lead-crm-screenshots": "lead-crm"
+    };
+
+    Object.entries(galleryButtons).forEach(function ([buttonId, projectKey]) {
+        const button = document.getElementById(buttonId);
+
+        if (button) {
+            button.addEventListener("click", function () {
+                openProjectModal(projectKey, projectKey);
+            });
+        }
+    });
+
+    // Also support gallery buttons that use data-gallery attributes.
+    document.querySelectorAll(".gallery-btn[data-gallery]").forEach(function (button) {
+        button.addEventListener("click", function () {
+            const projectKey = button.dataset.gallery;
+
+            if (galleryIds[projectKey]) {
+                openProjectModal(projectKey, projectKey);
+            }
+        });
+    });
+
+    // Close modal using the close button.
+    if (closeButton) {
+        closeButton.addEventListener("click", closeProjectModal);
+    }
+
+    // Close modal by clicking its backdrop.
+    if (modal) {
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                closeProjectModal();
+            }
+        });
+
+        // Start with modal closed.
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+    }
+
+    // Close modal with Escape.
+    document.addEventListener("keydown", function (event) {
+        if (
+            event.key === "Escape" &&
+            modal &&
+            modal.style.display === "flex"
+        ) {
+            closeProjectModal();
+        }
+    });
+
+    // Project category filters.
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            const selectedFilter = button.dataset.filter;
+
+            filterButtons.forEach(function (filterButton) {
+                filterButton.classList.toggle(
+                    "active",
+                    filterButton === button
+                );
+            });
+
+            projectCards.forEach(function (card) {
+                const categories = (card.dataset.category || "")
+                    .split(/\s+/)
+                    .filter(Boolean);
+
+                const shouldShow =
+                    selectedFilter === "all" ||
+                    categories.includes(selectedFilter);
+
+                card.style.display = shouldShow ? "" : "none";
+            });
+        });
+    });
+
+    // Dark mode.
+    const darkModeButton = document.getElementById("dark-mode-btn");
+
+    if (darkModeButton) {
+        darkModeButton.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+
+            const darkModeEnabled =
+                document.body.classList.contains("dark-mode");
+
+            darkModeButton.textContent = darkModeEnabled
+                ? "Light Mode"
+                : "Dark Mode";
+
+            darkModeButton.setAttribute(
+                "aria-pressed",
+                String(darkModeEnabled)
+            );
+        });
+    }
+
+    // Learn More button.
+    const learnMoreButton = document.getElementById("change-text-btn");
+    const mainHeading = document.getElementById("main-heading");
+
+    if (learnMoreButton && mainHeading) {
+        learnMoreButton.addEventListener("click", function () {
+            mainHeading.textContent =
+                "Building Practical Solutions with Scrum, AI, and Technology";
+
+            const about = document.getElementById("about");
+
+            if (about) {
+                about.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        });
+    }
+
+    // Show and hide About section.
+    const toggleAboutButton = document.getElementById("toggle-about-btn");
+    const aboutSection = document.getElementById("about");
+
+    if (toggleAboutButton && aboutSection) {
+        toggleAboutButton.addEventListener("click", function () {
+            const isHidden =
+                window.getComputedStyle(aboutSection).display === "none";
+
+            aboutSection.style.display = isHidden ? "" : "none";
+            toggleAboutButton.textContent = isHidden
+                ? "Hide About"
+                : "Show About";
+        });
+    }
+
+    // Back to top.
+    const topButton = document.getElementById("top-btn");
+
+    if (topButton) {
+        topButton.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+
+    // Smooth navigation.
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            const targetId = link.getAttribute("href");
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                event.preventDefault();
+
+                targetSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        });
+    });
+
+    // Report image errors in the browser console.
+    document.querySelectorAll("img").forEach(function (image) {
+        image.addEventListener("error", function () {
+            console.error(
+                "Image failed to load. Check this exact path:",
+                image.getAttribute("src")
+            );
+
+            image.classList.add("image-load-error");
+        });
+    });
 });

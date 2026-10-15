@@ -1,785 +1,451 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio showcasing Scrum, AI automation, blockchain, and front-end development projects.">
     <title>Ebube Portfolio</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 
-    <!-- GOOGLE FONT -->
+    <style>
+        #project-modal {
+            box-sizing: border-box;
+            padding: 20px;
+            overflow: auto;
+            align-items: flex-start;
+            justify-content: center;
+        }
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+        #project-modal .modal-content {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 1000px;
+            max-height: 90vh;
+            margin: auto;
+            padding: 24px;
+            overflow: auto;
+        }
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+        #project-modal .modal-close {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            float: right;
+        }
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
+        .project-screenshots[hidden] {
+            display: none !important;
+        }
 
+        .project-screenshots:not([hidden]) {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            width: 100%;
+            clear: both;
+        }
 
-    <!-- FONT AWESOME -->
+        .project-screenshots h3 {
+            grid-column: 1 / -1;
+        }
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        .project-screenshots figure {
+            box-sizing: border-box;
+            min-width: 0;
+            margin: 0;
+            padding: 12px;
+            overflow: hidden;
+            border: 1px solid #d8dee8;
+            border-radius: 12px;
+            background: #f8fafc;
+        }
 
+        .project-screenshots img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: 240px;
+            object-fit: contain;
+            background: #fff;
+            border-radius: 8px;
+        }
 
-    <!-- CSS -->
+        .project-screenshots figcaption {
+            margin-top: 10px;
+            color: #334155;
+            text-align: center;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
 
-    <link rel="stylesheet"
-          href="style.css">
+        body.modal-open {
+            overflow: hidden;
+        }
 
+        .image-load-error {
+            outline: 2px solid red;
+        }
+
+        @media (max-width: 650px) {
+            #project-modal {
+                padding: 10px;
+            }
+
+            #project-modal .modal-content {
+                max-height: 94vh;
+                padding: 16px;
+            }
+
+            .project-screenshots:not([hidden]) {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .project-screenshots img {
+                height: auto;
+                max-height: 350px;
+            }
+        }
+    </style>
 </head>
 
-
 <body>
-
-
-    <!-- NAVBAR -->
-
     <nav class="navbar">
-
         <h2>Ebube Portfolio</h2>
-
         <div class="nav-links">
-
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
+            <a href="#certifications">Certifications</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
-
         </div>
-
     </nav>
 
-
-    <!-- HERO SECTION -->
-
-    <section id="home"
-             class="hero hidden">
-
-        <img src="images/profile pics.jpeg"
-             alt="Ebube profile photo"
-             width="180">
-
-        <h1 id="main-heading">
-            Welcome to My Portfolio!
-        </h1>
+    <section id="home" class="hero">
+        <img src="images/profile pics.jpeg" alt="Portfolio profile photo" width="180">
+        <h1 id="main-heading">Welcome to My Portfolio!</h1>
 
         <p id="career">
-    Professional Scrum Master (PSM I) |
-    AI Automation Specialist |
-    Front-End Developer Experience
-</p>
+            Professional Scrum Master (PSM I) |
+            AI Automation Specialist |
+            Front-End Developer
+        </p>
 
         <div class="hero-buttons">
-
             <a href="https://github.com/EBUBENWACHUKWU"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="btn"
-               id="github-btn">
-
-                <i class="fab fa-github"></i>
-                GitHub
-
+               target="_blank" rel="noopener noreferrer" class="btn">
+                <i class="fab fa-github"></i> GitHub
             </a>
-
-            <button class="btn"
-                    id="change-text-btn">
-                Learn More
-            </button>
-
-            <button class="btn"
-                    id="dark-mode-btn">
-                Dark Mode
-            </button>
-
+            <button type="button" class="btn" id="change-text-btn">Learn More</button>
+            <button type="button" class="btn" id="dark-mode-btn">Dark Mode</button>
         </div>
-
     </section>
 
-
-    <!-- ABOUT SECTION -->
-
-    <section id="about"
-             class="about hidden">
-
+    <section id="about" class="about">
         <h2>About Me</h2>
-
         <p>
-    I am a <strong>Professional Scrum Master (PSM I)</strong> with experience
-    working on Agile, blockchain, web development, and AI automation projects.
-    I have experience applying Scrum practices, managing Product Backlogs,
-    supporting Sprint Planning, tracking Sprint progress, and facilitating
-    continuous improvement.
-
-    I also have experience with <strong>AI automation</strong> and
-    <strong>front-end development</strong>, building practical solutions using
-    tools such as n8n, HTML, CSS, JavaScript, and modern web technologies.
-
-    I enjoy combining <strong>Scrum, technology, and automation</strong> to help
-    teams build practical digital solutions and continuously improve their
-    way of working.
-</p>
-
-        <button class="btn"
-                id="toggle-about-btn">
-            Hide About
-        </button>
-
+            I am a Professional Scrum Master (PSM I) with project experience
+            involving Agile, web development, and AI automation.
+            I have practiced Product Backlog management, Sprint Planning,
+            Sprint tracking, Reviews, Retrospectives, and continuous improvement.
+            I also build practical n8n workflows using AI agents, webhooks,
+            APIs, Google Sheets, and email integrations.
+        </p>
+        <button type="button" class="btn" id="toggle-about-btn">Hide About</button>
     </section>
 
-
-    <!-- SKILLS SECTION -->
-
-    <section id="skills"
-             class="skills hidden">
-
+    <section id="skills" class="skills">
         <h2>Skills</h2>
-
         <div class="skills-container">
-
-
             <div class="skill-card">
-
-                <h3>
-                    <i class="fas fa-users"></i>
-                    Scrum & Agile
-                </h3>
-
-                <p>
-                    Sprint Planning, Sprint Reviews,
-                    Retrospectives, Product Backlog
-                    Management and Scrum Events.
-                </p>
-
+                <h3><i class="fas fa-users"></i> Scrum &amp; Agile</h3>
+                <p>Sprint Planning, Sprint Reviews, Retrospectives, Product Backlog management, and Scrum events.</p>
             </div>
-
-
             <div class="skill-card">
-
-                <h3>
-                    <i class="fab fa-html5"></i>
-                    HTML
-                </h3>
-
-                <p>
-                    Building semantic and structured
-                    web pages.
-                </p>
-
+                <h3><i class="fab fa-html5"></i> HTML &amp; CSS</h3>
+                <p>Semantic HTML, styling, responsive layouts, and user interfaces.</p>
             </div>
-
-
             <div class="skill-card">
-
-                <h3>
-                    <i class="fab fa-css3-alt"></i>
-                    CSS
-                </h3>
-
-                <p>
-                    Responsive layouts, animations,
-                    cards and modern styling.
-                </p>
-
+                <h3><i class="fab fa-js"></i> JavaScript</h3>
+                <p>DOM manipulation, event handling, and interactive website features.</p>
             </div>
-
-
             <div class="skill-card">
-
-                <h3>
-                    <i class="fab fa-js"></i>
-                    JavaScript
-                </h3>
-
-                <p>
-                    DOM manipulation, events,
-                    interactive components and
-                    website functionality.
-                </p>
-
+                <h3><i class="fas fa-link"></i> Blockchain</h3>
+                <p>Solidity, smart contracts, Hardhat, React, and Ethers.js.</p>
             </div>
-
-
             <div class="skill-card">
-
-                <h3>
-                    <i class="fas fa-link"></i>
-                    Blockchain
-                </h3>
-
-                <p>
-                    Solidity, smart contracts,
-                    Hardhat, React and Ethers.js.
-                </p>
-
+                <h3><i class="fas fa-robot"></i> AI Automation</h3>
+                <p>n8n workflows, AI agents, webhooks, APIs, and workflow automation.</p>
             </div>
-
-
             <div class="skill-card">
-
-                <h3>
-                    <i class="fas fa-robot"></i>
-                    AI Automation
-                </h3>
-
-                <p>
-                    n8n workflows, AI agents,
-                    structured AI outputs,
-                    APIs and workflow automation.
-                </p>
-
+                <h3><i class="fas fa-database"></i> Integrations</h3>
+                <p>Google Sheets, Gmail, HTTP requests, webhook triggers, and data processing.</p>
             </div>
-
         </div>
-
     </section>
 
+    <section id="certifications" class="certifications">
+        <h2>Certifications</h2>
+        <div class="cert-card">
+            <a href="images/psm1-certificate.png" target="_blank" rel="noopener noreferrer">
+                <img src="images/psm1-certificate.png" alt="Professional Scrum Master I certificate">
+            </a>
+            <h3>Professional Scrum Master™ I (PSM I)</h3>
+            <p><strong>Issued by:</strong> Scrum.org</p>
+            <p>Certification demonstrating knowledge of Scrum principles and practices.</p>
+            <a href="images/psm1-certificate.png" target="_blank"
+               rel="noopener noreferrer" class="btn">View Certificate</a>
+        </div>
+    </section>
 
-    <!-- CERTIFICATIONS -->
-
-<section class="certifications hidden">
-
-    <h2>Certifications</h2>
-
-    <div class="cert-card">
-
-        <a href="images/psm1-certificate.png"
-           target="_blank"
-           rel="noopener noreferrer">
-
-            <img src="images/psm1-certificate.png"
-                 alt="Professional Scrum Master I Certificate">
-
-        </a>
-
-        <h3>
-            Professional Scrum Master™ I (PSM I)
-        </h3>
-
-        <p>
-            <strong>Issued by:</strong>
-            Scrum.org
-        </p>
-
-        <p>
-            Professional Scrum Master I certification
-            demonstrating knowledge of Scrum principles,
-            practices and the Scrum framework.
-        </p>
-
-        <a href="images/psm1-certificate.png"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn">
-
-            View Certificate
-
-        </a>
-
-    </div>
-
-</section>
-
-    <!-- SCRUM EXPERIENCE -->
-
-    <section class="scrum-experience hidden">
-
+    <section id="scrum-experience" class="scrum-experience">
         <h2>Scrum Experience</h2>
-
         <div class="skills-container">
-
-
             <div class="skill-card">
-
-                <h3>
-                    <i class="fas fa-list-check"></i>
-                    Product Backlog
-                </h3>
-
-                <p>
-                    Created and refined Product Backlog
-                    items and maintained clear priorities.
-                </p>
-
+                <h3><i class="fas fa-list-check"></i> Product Backlog</h3>
+                <p>Created and refined Product Backlog items and maintained clear priorities.</p>
             </div>
-
-
             <div class="skill-card">
-
-                <h3>
-                    <i class="fas fa-calendar-check"></i>
-                    Sprint Planning
-                </h3>
-
-                <p>
-                    Defined Sprint Goals and helped
-                    organize Sprint Backlog items.
-                </p>
-
+                <h3><i class="fas fa-calendar-check"></i> Sprint Planning</h3>
+                <p>Defined Sprint Goals and organized Sprint Backlog work.</p>
             </div>
-
-
             <div class="skill-card">
-
-                <h3>
-                    <i class="fas fa-chart-line"></i>
-                    Sprint Tracking
-                </h3>
-
-                <p>
-                    Used Jira and Agile metrics to
-                    monitor Sprint progress.
-                </p>
-
+                <h3><i class="fas fa-chart-line"></i> Sprint Tracking</h3>
+                <p>Used Jira and Agile metrics to monitor Sprint progress.</p>
             </div>
-
-
             <div class="skill-card">
-
-                <h3>
-                    <i class="fas fa-comments"></i>
-                    Scrum Events
-                </h3>
-
-                <p>
-                    Practiced Sprint Reviews,
-                    Retrospectives and Daily Scrum.
-                </p>
-
+                <h3><i class="fas fa-comments"></i> Scrum Events</h3>
+                <p>Practiced Sprint Reviews, Retrospectives, and Daily Scrum.</p>
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- PROJECTS SECTION -->
-
-    <section id="projects"
-             class="projects hidden">
-
+    <section id="projects" class="projects">
         <h2>Projects</h2>
 
-
-        <!-- PROJECT FILTER BUTTONS -->
-
         <div class="filter-buttons">
-
-            <button class="btn"
-                    id="all-btn">
-                All
-            </button>
-
-            <button class="btn"
-                    id="html-btn">
-                HTML/CSS
-            </button>
-
-            <button class="btn"
-                    id="js-btn">
-                JavaScript
-            </button>
-
-            <button class="btn"
-                    id="scrum-btn">
-                Scrum
-            </button>
-
-            <button class="btn"
-                    id="ai-btn">
-                AI Automation
-            </button>
-
+            <button type="button" class="btn filter-btn active" data-filter="all">All</button>
+            <button type="button" class="btn filter-btn" data-filter="html">HTML/CSS</button>
+            <button type="button" class="btn filter-btn" data-filter="javascript">JavaScript</button>
+            <button type="button" class="btn filter-btn" data-filter="scrum">Scrum</button>
+            <button type="button" class="btn filter-btn" data-filter="ai">AI Automation</button>
         </div>
-
-
-        <!-- PROJECT CONTAINER -->
 
         <div class="projects-container">
 
-
-            <!-- PROJECT 1: PORTFOLIO -->
-
-            <div class="project-card"
-                 id="project1">
-
-                <img src="images/portfolio.png"
-                     alt="Portfolio Website">
-
-                <h3>
-                    Portfolio Website
-                </h3>
-
-                <p>
-                    A responsive personal portfolio
-                    website built using HTML, CSS
-                    and JavaScript.
-                </p>
-
+            <!-- PROJECT 1 -->
+            <div class="project-card" id="project1" data-category="html javascript">
+                <img src="images/portfolio.png" alt="Portfolio website">
+                <h3>Portfolio Website</h3>
+                <p>A responsive personal portfolio built with HTML, CSS, and JavaScript.</p>
                 <div class="project-tags">
-
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-
+                    <span>HTML</span><span>CSS</span><span>JavaScript</span>
                 </div>
-
-                <a href="#"
-                   class="btn"
-                   id="portfolio-details">
-
-                    <i class="fas fa-circle-info"></i>
-                    Details
-
-                </a>
-
+                <button type="button" class="btn details-btn" data-project="portfolio">Details</button>
                 <a href="https://github.com/EBUBENWACHUKWU"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="btn">
-
-                    <i class="fab fa-github"></i>
-                    GitHub
-
-                </a>
-
+                   target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
             </div>
 
-
-            <!-- PROJECT 2: E-COMMERCE -->
-
-            <div class="project-card"
-                 id="project2">
-
-                <img src="images/ecommerce.png"
-                     alt="E-Commerce Scrum Project">
-
-                <h3>
-                    E-Commerce Scrum Project
-                </h3>
-
-                <p>
-                    An Agile e-commerce project managed
-                    using Scrum and Jira.
-                </p>
-
+            <!-- PROJECT 2 -->
+            <div class="project-card" id="project2" data-category="scrum">
+                <img src="images/ecommerce.png" alt="E-Commerce Scrum project">
+                <h3>E-Commerce Scrum Project</h3>
+                <p>An Agile e-commerce project organized and managed using Scrum and Jira.</p>
                 <div class="project-tags">
-
-                    <span>Scrum</span>
-                    <span>Jira</span>
-                    <span>Agile</span>
-
+                    <span>Scrum</span><span>Jira</span><span>Agile</span>
                 </div>
-
-                <a href="#"
-                   class="btn"
-                   id="ecommerce-details">
-
-                    <i class="fas fa-circle-info"></i>
-                    Details
-
-                </a>
-
+                <button type="button" class="btn details-btn" data-project="ecommerce">Details</button>
                 <a href="https://github.com/EBUBENWACHUKWU/E-Commerce-Scrum-Project"
-                   class="btn">
-
-
-                    <i class="fab fa-github"></i>
-                    GitHub
-
-                </a>
-
+                   target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
             </div>
 
-
-    <!-- PROJECT 3: SCRUM STAKING DAPP PROJECT -->
-
-    <div class="project-card"
-     id="project3">
-
-    <img src="images/staking.png"
-         alt="Scrum Staking DApp Project">
-
-    <h3>
-        Scrum Staking DApp Project
-    </h3>
-
-    <p>
-        Managed a blockchain staking DApp project using
-        Agile and Scrum practices. Used Jira to organize
-        and manage the Product Backlog, plan and track
-        Sprints, monitor progress, and document Sprint
-        Reviews and Sprint Retrospectives.
-    </p>
-
-    <div class="project-tags">
-
-        <span>Scrum</span>
-        <span>Agile</span>
-        <span>Jira</span>
-        <span>Sprint Planning</span>
-        <span>Product Backlog</span>
-        <span>Sprint Review</span>
-        <span>Sprint Retrospective</span>
-        <span>Blockchain</span>
-
-    </div>
-
-    <a href="#"
-       class="btn"
-       id="staking-details">
-
-        <i class="fas fa-circle-info"></i>
-        Details
-
-    </a>
-
-    <a href="https://github.com/EBUBENWACHUKWU/Staking-Dapp-Scrum-Project"
-       class="btn">
-
-        <i class="fab fa-github"></i>
-        GitHub
-
-    </a>
-
-</div>
-
-            <!-- PROJECT 4: AI CUSTOMER SUPPORT AUTOMATION -->
-
-            <div class="project-card"
-                 id="project4">
-
-                <img src="screenshots/workflow.png"
-                     alt="AI Customer Support Automation n8n Workflow">
-
-                <img src="screenshots/google-sheets-ticket.png"
-                     alt="Google Sheets Support Ticket">
-
-                <h3>
-
-                    AI Customer Support Automation
-
-                    <span class="featured-badge">
-                        AI
-                    </span>
-
-                </h3>
-
+            <!-- PROJECT 3 -->
+            <div class="project-card" id="project3" data-category="scrum">
+                <img src="images/staking.png" alt="Scrum Staking DApp project">
+                <h3>Scrum Staking DApp Project</h3>
                 <p>
-
-                    Built an AI-powered customer-support
-                    automation using n8n.
-
-                    The workflow receives customer emails,
-                    analyzes customer requests using AI,
-                    classifies intent and priority,
-                    routes requests based on intent,
-                    generates an AI-assisted response,
-                    and logs structured support tickets
-                    in Google Sheets.
-
+                    A blockchain staking DApp project documented through Scrum planning,
+                    Sprint tracking, Reviews, and Retrospectives.
                 </p>
-
                 <div class="project-tags">
-
-                    <span>n8n</span>
-                    <span>AI</span>
-                    <span>OpenRouter</span>
-                    <span>JSON</span>
-                    <span>Google Sheets</span>
-                    <span>IMAP</span>
-
+                    <span>Scrum</span><span>Agile</span><span>Jira</span>
+                    <span>Blockchain</span>
                 </div>
-
-                <a href="#"
-                   class="btn"
-                   id="ai-project-details">
-
-                    <i class="fas fa-circle-info"></i>
-                    Details
-
-                </a>
-
-                <a href="https://github.com/EBUBENWACHUKWU/AI-customer-support-automation"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="btn">
-
-                    <i class="fab fa-github"></i>
-                    GitHub
-
-                </a>
-
+                <button type="button" class="btn details-btn" data-project="staking">Details</button>
+                <a href="https://github.com/EBUBENWACHUKWU/Staking-Dapp-Scrum-Project"
+                   target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
             </div>
 
+            <!-- PROJECT 4: REMITTANCE -->
+            <div class="project-card featured-project" id="project4" data-category="ai javascript">
+                <img src="screenshots/01-workflow-overview.png"
+                     alt="AI Remittance Document Processing workflow">
+                <h3>AI Remittance Document Processing Automation
+                    <span class="featured-badge">AI</span>
+                </h3>
+                <p>
+                    An n8n automation for processing remittance PDFs, validating payment
+                    data, detecting duplicates, routing documents for human review,
+                    logging outcomes, and sending email notifications.
+                 </p>
+                <div class="project-tags">
+                    <span>n8n</span><span>AI</span><span>Webhooks</span>
+                    <span>PDF Processing</span><span>Google Sheets</span><span>Gmail</span>
+                </div>
+                <button type="button" class="btn details-btn" data-project="remittance">Details</button>
+                <button type="button" class="btn" id="remittance-screenshots">
+                    <i class="fas fa-images"></i> View Screenshots
+                </button>
+                <a href="https://github.com/EBUBENWACHUKWU/AI-Remittance-Document-processing"
+                   target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
+            </div>
 
-            <!-- PROJECT 5: AI SCRUM RETROSPECTIVE ASSISTANT -->
+            <!-- PROJECT 5: CUSTOMER SUPPORT -->
+            <div class="project-card featured-project" id="project5" data-category="ai javascript">
+                <img src="screenshots/n8n-workflow-overview.png"
+                     alt="AI customer support automation workflow">
+                <h3>AI Customer Support Ticket Management
+                    <span class="featured-badge">AI</span>
+                </h3>
+                <p>
+                    AI-powered customer support automation using n8n, AI agents,
+                    Supabase, and a ticket management dashboard.
+                </p>
+                <div class="project-tags">
+                    <span>n8n</span><span>AI Agents</span><span>Supabase</span>
+                    <span>Ticket Management</span><span>Dashboard</span>
+                </div>
+                <button type="button" class="btn details-btn" data-project="customer-support">Details</button>
+                <button type="button" class="btn" id="customer-support-screenshots">
+                    <i class="fas fa-images"></i> View Screenshots
+                </button>
+                <a href="https://github.com/EBUBENWACHUKWU/AI-customer-support-ticket-management"
+                   target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
+            </div>
 
-
- <div   class="project-card featured-project"
-
-          id="project5">
-
+            <!-- PROJECT 6: SCRUM RETROSPECTIVE -->
+            <div class="project-card featured-project" id="project6" data-category="ai scrum">
                 <img src="screenshots/scrum-retro-workflow.png"
-                     alt="AI Scrum Retrospective Assistant n8n Workflow">
-
-                <h3>
-                    AI Scrum Retrospective Assistant
-
-                    <span class="featured-badge">
-                        AI
-                    </span>
+                     alt="AI Scrum Retrospective Assistant workflow">
+                <h3>AI Scrum Retrospective Assistant
+                    <span class="featured-badge">AI</span>
                 </h3>
-
                 <p>
-                    An AI-powered n8n automation that analyzes
-                    Sprint Retrospective feedback, identifies key
-                    themes and priorities, generates actionable
-                    recommendations, and automatically stores
-                    structured insights in Google Sheets.
+                    An AI-powered n8n workflow that analyzes Sprint Retrospective
+                    feedback and generates structured insights and action items.
                 </p>
-
                 <div class="project-tags">
-
-                    <span>n8n</span>
-                    <span>AI</span>
-                    <span>OpenRouter</span>
-                    <span>Structured Output</span>
-                    <span>Google Sheets</span>
-                    <span>Scrum</span>
-
+                    <span>n8n</span><span>AI</span><span>Scrum</span><span>Google Sheets</span>
                 </div>
-
-                <a href="#"
-                   class="btn"
-                   id="scrum-ai-details">
-
-                    <i class="fas fa-circle-info"></i>
-                    Details
-
-                </a>
-
+                <button type="button" class="btn details-btn" data-project="scrum-ai">Details</button>
+                <button type="button" class="btn" id="scrum-ai-screenshots">
+                    <i class="fas fa-images"></i> View Screenshots
+                </button>
                 <a href="https://github.com/EBUBENWACHUKWU/ai-scrum-retrospective-assistant"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="btn">
+                   target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
+            </div>
 
-                    <i class="fab fa-github"></i>
-                    GitHub
+            <!-- PROJECT 7: LEAD CRM -->
+            <div class="project-card featured-project" id="project7" data-category="ai javascript">
+                <img src="screenshots/ai-lead-qualification-crm.png"
+                     alt="AI Lead Qualification and CRM workflow">
+                <h3>AI Lead Qualification &amp; CRM Agent
+                    <span class="featured-badge">AI</span>
+                </h3>
+                <p>
+                    An n8n automation that qualifies leads as Hot, Warm, or Cold,
+                    records results in Google Sheets, and sends email notifications.
+                </p>
+                <div class="project-tags">
+                    <span>n8n</span><span>AI Agents</span><span>Webhooks</span>
+                    <span>Google Sheets</span><span>Gmail</span>
+                </div>
+                <button type="button" class="btn details-btn" data-project="lead-crm">Details</button>
+                <button type="button" class="btn" id="lead-crm-screenshots">
+                    <i class="fas fa-images"></i> View Screenshots
+                </button>
+                <a href="https://github.com/EBUBENWACHUKWU/AI-lead-qualification-CRM-Agent"
+                   target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
+            </div>
 
-                </a>
+        </div>
+    </section>
 
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>Interested in working together? Feel free to connect with me.</p>
+        <a href="mailto:ebubechukwu1982@gmail.com" class="btn">
+            <i class="fas fa-envelope"></i> Email Me
+        </a>
+        <a href="https://github.com/EBUBENWACHUKWU"
+           target="_blank" rel="noopener noreferrer" class="btn">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+    </section>
+
+    <!-- PROJECT DETAILS MODAL AND SCREENSHOT GALLERIES -->
+    <div class="modal" id="project-modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button type="button" id="close-modal" class="modal-close" aria-label="Close modal">&times;</button>
+            <h2 id="modal-title">Project Details</h2>
+            <p id="modal-description"></p>
+
+            <!-- Remittance gallery: all seven files shown in your GitHub screenshot -->
+            <div id="remittance-gallery" class="project-screenshots" hidden>
+                <h3>AI Remittance Processing Screenshots</h3>
+                <figure><img src="screenshots/01-workflow-overview.png" alt="Remittance workflow overview"><figcaption>Workflow Overview</figcaption></figure>
+                <figure><img src="screenshots/02-accepted-result.png" alt="Accepted remittance result"><figcaption>Accepted Result</figcaption></figure>
+                <figure><img src="screenshots/03-duplicate-result.png" alt="Duplicate remittance result"><figcaption>Duplicate Detection</figcaption></figure>
+                <figure><img src="screenshots/04-human-review-result.png" alt="Human review result"><figcaption>Human Review Result</figcaption></figure>
+                <figure><img src="screenshots/05-processing-log.png" alt="Remittance processing log"><figcaption>Processing Log</figcaption></figure>
+                <figure><img src="screenshots/06-human-review-email.png" alt="Human review email"><figcaption>Human Review Email</figcaption></figure>
+                <figure><img src="screenshots/07-error-handler.png" alt="Remittance error handler"><figcaption>Error Handler</figcaption></figure>
+            </div>
+
+            <!-- Customer support gallery: local VS Code filenames -->
+            <div id="customer-support-gallery" class="project-screenshots" hidden>
+                <h3>AI Customer Support Screenshots</h3>
+                <figure><img src="screenshots/n8n-workflow-overview.png" alt="Customer support workflow"><figcaption>n8n Workflow</figcaption></figure>
+                <figure><img src="screenshots/dashboard-overview.png" alt="Customer support dashboard"><figcaption>Dashboard Overview</figcaption></figure>
+                <figure><img src="screenshots/supabase-ticket-table.png" alt="Supabase ticket table"><figcaption>Supabase Ticket Table</figcaption></figure>
+            </div>
+
+            <!-- Scrum Retrospective gallery -->
+            <div id="scrum-ai-gallery" class="project-screenshots" hidden>
+                <h3>AI Scrum Retrospective Assistant Screenshots</h3>
+                <figure><img src="screenshots/scrum-retro-workflow.png" alt="Retrospective workflow"><figcaption>Workflow</figcaption></figure>
+                <figure><img src="screenshots/scrum-retro-ai-output.png" alt="AI retrospective output"><figcaption>AI Output</figcaption></figure>
+                <figure><img src="screenshots/scrum-retro-sheets.png" alt="Retrospective spreadsheet"><figcaption>Google Sheets Results</figcaption></figure>
+            </div>
+
+            <!-- Lead CRM gallery -->
+            <div id="lead-crm-gallery" class="project-screenshots" hidden>
+                <h3>AI Lead Qualification &amp; CRM Screenshots</h3>
+                <figure><img src="screenshots/ai-lead-qualification-crm.png" alt="Lead qualification CRM workflow"><figcaption>Lead Qualification Workflow</figcaption></figure>
+                <figure><img src="screenshots/lead-qualification-results.png" alt="Lead qualification results"><figcaption>Lead Qualification Results</figcaption></figure>
+                <figure><img src="screenshots/google-sheets-leads.png" alt="Google Sheets leads"><figcaption>Google Sheets Lead Records</figcaption></figure>
+                <figure><img src="screenshots/hot-lead-alert.png" alt="Hot lead alert"><figcaption>Hot Lead Alert</figcaption></figure>
+                <figure><img src="screenshots/warm-lead-follow-up.png" alt="Warm lead follow-up"><figcaption>Warm Lead Follow-up</figcaption></figure>
             </div>
         </div>
-
-    </section>
-
-
-    <!-- CONTACT SECTION -->
-
-    <section id="contact"
-             class="contact hidden">
-
-        <h2>
-            Contact Me
-        </h2>
-
-        <p>
-            Interested in working together?
-            Feel free to connect with me.
-        </p>
-
-        <a href="mailto:your-email@example.com"
-           class="btn">
-
-            <i class="fas fa-envelope"></i>
-            Email Me
-
-        </a>
-
-        <a href="https://github.com/EBUBENWACHUKWU"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn">
-
-            <i class="fab fa-github"></i>
-            GitHub
-
-        </a>
-
-    </section>
-
-
-    <!-- PROJECT DETAILS MODAL -->
-
-    <div class="modal"
-         id="project-modal">
-
-        <div class="modal-content">
-
-            <span id="close-modal">
-                &times;
-            </span>
-
-            <h2 id="modal-title">
-                Project Details
-            </h2>
-
-            <p id="modal-description">
-                Project description will appear here.
-            </p>
-
-        </div>
-
     </div>
 
-
-    <!-- BACK TO TOP BUTTON -->
-
-    <button class="btn"
-            id="top-btn">
-
-        <i class="fas fa-arrow-up"></i>
-        Top
-
+    <button type="button" class="btn" id="top-btn" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i> Top
     </button>
 
-<!-- FOOTER -->
-
-<footer class="footer">
-
-    <h3>
-        Professional Scrum Master (PSM I) |
-        AI Automation |
-        Front-End Development
-    </h3>
-
-    <p>
-        Building practical digital solutions through
-        Agile, Scrum, technology and automation.
-    </p>
-
-    <p>
-        © 2026 Ebube Nwachukwu. All Rights Reserved.
-    </p>
-
-</footer>
-
-
-    <!-- JAVASCRIPT -->
+    <footer class="footer">
+        <h3>Professional Scrum Master (PSM I) | AI Automation | Front-End Development</h3>
+        <p>Building practical digital solutions through Agile, Scrum, technology, and automation.</p>
+        <p>&copy; 2026 Ebube Nwachukwu. All Rights Reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
-
 </body>
-
 </html>
